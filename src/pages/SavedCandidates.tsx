@@ -2,21 +2,28 @@ import { useEffect, useState } from "react";
 import  { Candidate } from '../interfaces/Candidate.interface';
 
 const SavedCandidates = () => {
+  //storing saved candidates from local storage
   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
 
   // Load saved candidates from local storage
   useEffect (() => {
     const saved = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
+    //setting to state
     setSavedCandidates(saved);
-  }, []);
+  }, []); //empty array to ensure it only runs once
 
-// remove candidate 
+// remove candidate by username
 const removeCandidate = (username: string) => {
+  //filtering candidates out with matching username from saved candidates
   const updatedCandidates = savedCandidates.filter((candidate) => candidate.username !== username);
+  //updating state
   setSavedCandidates(updatedCandidates);
+  //saving updated list to local storage
   localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
 };
 
+
+//rendering a table for candidates/information
 
   return (
     <>
