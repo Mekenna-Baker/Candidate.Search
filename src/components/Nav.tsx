@@ -20,7 +20,7 @@ const Nav = () => {
           <NavLink to="/SavedCandidates"
             className={({ isActive }) =>
               isActive ? 'nav-link active' : 'nav-link'}
-          >About</NavLink>
+          >Potential Candidates</NavLink>
         </li>
       </ul>
     </div>
