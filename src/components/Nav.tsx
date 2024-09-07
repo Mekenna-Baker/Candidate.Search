@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <div>
       <ul className="nav">
-        <li>
+        <li className="nav-item">
           {/* Creating Home navlink, and setting it as root/default page */}
           <NavLink
             to="/"
@@ -16,7 +16,7 @@ const Nav = () => {
             end
           >Home</NavLink>
         </li>
-        <li>
+        <li className="nav-item">
           <NavLink to="/SavedCandidates"
             className={({ isActive }) =>
               isActive ? 'nav-link active' : 'nav-link'}

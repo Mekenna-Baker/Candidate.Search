@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import { searchGithub, searchGithubUser } from '../api/API';  
+import { searchGithub, searchGithubUser } from '../api/API';
 import { Candidate } from '../interfaces/Candidate.interface';
 
 const CandidateSearch = () => {
 
   const [candidates, setCandidates] = useState<Candidate[]>([]);  // storing candidates
-   
+
   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(null);   // current candidate
-  
+
   const [detailedCandidate, setDetailedCandidate] = useState<Candidate | null>(null);  // candidate information
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const CandidateSearch = () => {
     const fetchDetailedCandidate = async () => {
       if (currentCandidate) {
         const detailedData = await searchGithubUser(currentCandidate.username);  // Fetch info by username
-        setDetailedCandidate(detailedData);  
+        setDetailedCandidate(detailedData);
       }
     };
 
@@ -60,7 +60,7 @@ const CandidateSearch = () => {
       <h1>CandidateSearch</h1>
 
       {/* Display detailed candidate info when available */}
-      
+
       {detailedCandidate ? (
         <div className="candidate-card">
           <img src={detailedCandidate.avatar} alt={detailedCandidate.name} />
