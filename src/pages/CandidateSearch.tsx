@@ -12,7 +12,8 @@ const CandidateSearch = () => {
 
   useEffect(() => {
     const fetchCandidates = async () => {
-      const data = await searchGithub(); // Fetching candidate data from the API
+      const data = await searchGithub();
+       // Fetching candidate data from the API
       setCandidates(data);
       setCurrentCandidate(data[0]);  // Set the first candidate to be displayed
     };
