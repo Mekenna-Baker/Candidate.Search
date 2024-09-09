@@ -12,10 +12,22 @@ const CandidateSearch = () => {
 
   useEffect(() => {
     const fetchCandidates = async () => {
-      const data = await searchGithub();
-       // Fetching candidate data from the API
-      setCandidates(data);
-      setCurrentCandidate(data[0]);  // Set the first candidate to be displayed
+      const data = await searchGithub();  // Fetching candidate data from the API
+      // Map the GitHub API response to match the Candidate interface
+      console.log('Fetched candidates:', data);
+      const formattedData: Candidate[] = data.map((user: Candidate) => ({
+        name: user.name || 'No name provided',
+        username: user.login,   // Map 'login' from API to 'username' in the interface
+        location: user.location || 'Unknown location',
+        avatar_url: user.avatar_url,
+        email: user.email || null,
+        html_url: user.html_url,
+        company: user.company || null,
+        bio: user.bio || null
+      }));
+
+      setCandidates(formattedData);
+      setCurrentCandidate(formattedData[0]);  // Set the first candidate to be displayed
     };
 
     fetchCandidates();
@@ -61,15 +73,15 @@ const CandidateSearch = () => {
       <h1>CandidateSearch</h1>
 
       {/* Display detailed candidate info when available */}
-
       {detailedCandidate ? (
         <div className="candidate-card">
-          <img src={detailedCandidate.avatar} alt={detailedCandidate.name} />
+          <img src={detailedCandidate.avatar_url} alt={detailedCandidate.name} />
           <h2>{detailedCandidate.name} <em>({detailedCandidate.username})</em></h2>
           <p>Location: {detailedCandidate.location}</p>
-          <p>Email: {detailedCandidate.email}</p>
-          <p>Company: {detailedCandidate.company}</p>
-          <p>Bio: {detailedCandidate.bio}</p>
+          <p>Email: {detailedCandidate.email || 'No email provided'}</p>
+          <p>Company: {detailedCandidate.company || 'No company provided'}</p>
+          <p>Bio: {detailedCandidate.bio || 'No bio provided'}</p>
+          <a href={detailedCandidate.html_url}>View GitHub Profile</a>
           <button onClick={saveCandidate}>Save</button>
           <button onClick={skipCandidate}>Skip</button>
         </div>

@@ -43,9 +43,9 @@ const removeCandidate = (username: string) => {
           </thead>
           <tbody>
             {savedCandidates.map((candidate) => (
-              <tr key={candidate.username}>
+              <tr key={candidate.login}>
                 <td>
-                  <img src={candidate.avatar} alt={candidate.name} />
+                  <img src={candidate.avatar_url} alt={candidate.name} />
                   </td>
                 <td>{candidate.name}</td> 
                 <td>{candidate.location} </td>
@@ -54,7 +54,7 @@ const removeCandidate = (username: string) => {
                 <td>{candidate.bio}</td>
 
                 <td>
-                  <button onClick={() => removeCandidate(candidate.username)}></button>
+                  <button onClick={() => removeCandidate(candidate.username)}> - </button>
 
                   </td>
               </tr>
