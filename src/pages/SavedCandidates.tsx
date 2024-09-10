@@ -13,9 +13,9 @@ const SavedCandidates = () => {
   }, []); //empty array to ensure it only runs once
 
 // remove candidate by username
-const removeCandidate = (username: string) => {
+const removeCandidate = (login: string) => {
   //filtering candidates out with matching username from saved candidates
-  const updatedCandidates = savedCandidates.filter((candidate) => candidate.username !== username);
+  const updatedCandidates = savedCandidates.filter((candidate) => candidate.username !== login);
   //updating state
   setSavedCandidates(updatedCandidates);
   //saving updated list to local storage
@@ -43,13 +43,14 @@ const removeCandidate = (username: string) => {
           </thead>
           <tbody>
             {savedCandidates.map((candidate) => (
-              <tr key={candidate.login}>
-                <td>
-                  <img src={candidate.avatar_url} alt={candidate.name} />
+              <tr key={candidate.html_url}>
+                <td style={{ textAlign: "center" }}>
+                  <img src={candidate.avatar_url} alt={candidate.name} 
+                  style={{ width: '75px', height: '75px', borderRadius: '5%' }}/>
                   </td>
                 <td>{candidate.name}</td> 
                 <td>{candidate.location} </td>
-                <td>{candidate.email}</td>
+                <td><a href={`mailto:${candidate.email}`}>{candidate.email}</a></td>
                 <td>{candidate.company}</td>
                 <td>{candidate.bio}</td>
 
