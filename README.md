@@ -1,33 +1,22 @@
-# React + TypeScript + Vite
+# Candidate Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+The Candidate Search Application is a web-based tool that allows users to browse through a list of potential GitHub candidates fetched via the GitHub API. The user can view detailed information about each candidate, including their avatar, name, username, location, email, company, and bio.
 
-* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
-* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents (Optional)
 
-## Expanding the ESLint configuration
+If your README is long, add a table of contents to make it easy for users to find what they need.
 
-If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
 
-* Configure the top-level `parserOptions` property as follows:
+## Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+https://search4candidates.netlify.app
 
-* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
-* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
-* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
+## Usage
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+After clicking on the websites URL, you'll be directed to the home page. You can navigate through different github accounts by hitting the '-' button. You can also hit the '+' button to save the account, if you're interested in revisitng it, or reaching out to the potential candidate. 
+

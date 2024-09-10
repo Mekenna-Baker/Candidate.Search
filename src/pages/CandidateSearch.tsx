@@ -70,21 +70,32 @@ const CandidateSearch = () => {
   };
 
   return (
-    <div>
-      <h1>CandidateSearch</h1>
+    <div >
+      <h1>Candidate Search</h1>
 
       {/* Display detailed candidate info when available */}
       {detailedCandidate ? (
         <div key={detailedCandidate.login}>
-          <img src={detailedCandidate.avatar_url} alt={detailedCandidate.name} />
-          <h2>{detailedCandidate.name} <em>({detailedCandidate.username})</em></h2>
-          <p>Location: {detailedCandidate.location}</p>
-          <p>Email: {detailedCandidate.email || 'No email provided'}</p>
+          <img className="avatarimg" src={detailedCandidate.avatar_url || '/image/no_image.PNG'} alt={detailedCandidate.name || 'No image available'} />
+          <h2>{detailedCandidate.name || 'Unknown Name'} <em>({detailedCandidate.login || 'Unknown Username'} )</em></h2>
+          <p>Location: {detailedCandidate.location || 'Unknown location'}</p>
+          <p>
+            Email:{' '}
+            {detailedCandidate.email ? (
+              <a href={`mailto:${detailedCandidate.email}`} style={{ color: '#646cff' }}>
+                {detailedCandidate.email}
+              </a>
+            ) : (
+              'No email provided'
+            )}
+          </p>
           <p>Company: {detailedCandidate.company || 'No company provided'}</p>
           <p>Bio: {detailedCandidate.bio || 'No bio provided'}</p>
-          <button onClick={skipCandidate}>-</button>
-          <button onClick={saveCandidate}>+</button>
-          
+
+        
+          <button className ="reject-btn" onClick={skipCandidate}>-</button>
+          <button className = "save-btn" onClick={saveCandidate}>+</button>
+        
         </div>
       ) : (
         <p>No more candidates available</p>

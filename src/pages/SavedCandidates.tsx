@@ -44,9 +44,8 @@ const removeCandidate = (login: string) => {
           <tbody>
             {savedCandidates.map((candidate) => (
               <tr key={candidate.html_url}>
-                <td style={{ textAlign: "center" }}>
-                  <img src={candidate.avatar_url} alt={candidate.name} 
-                  style={{ width: '75px', height: '75px', borderRadius: '5%' }}/>
+                <td style={{ textAlign: "center" }} className="candidate-card">
+                  <img src={candidate.avatar_url} alt={candidate.name} />
                   </td>
                 <td>{candidate.name}</td> 
                 <td>{candidate.location} </td>
@@ -55,7 +54,7 @@ const removeCandidate = (login: string) => {
                 <td>{candidate.bio}</td>
 
                 <td>
-                  <button onClick={() => removeCandidate(candidate.username)}> - </button>
+                  <button className="reject-btn" onClick={() => removeCandidate(candidate.username)}> - </button>
 
                   </td>
               </tr>
