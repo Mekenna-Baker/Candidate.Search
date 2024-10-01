@@ -89,6 +89,7 @@ const CandidateSearch = () => {
               'No email provided'
             )}
           </p>
+          
           <p>Company: {detailedCandidate.company || 'No company provided'}</p>
           <p>Bio: {detailedCandidate.bio || 'No bio provided'}</p>
 
