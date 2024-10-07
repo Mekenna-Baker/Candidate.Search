@@ -20,3 +20,5 @@ https://search4candidates.netlify.app
 
 After clicking on the websites URL, you'll be directed to the home page. You can navigate through different github accounts by hitting the '-' button. You can also hit the '+' button to save the account, if you're interested in revisitng it, or reaching out to the potential candidate. 
 
+https://search4candidates.netlify.app/ 
+
